@@ -1,0 +1,66 @@
+.timeline {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    left: 50%;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 2%;
+    position: relative;
+    width: 50%;
+    list-style: none;
+
+    &::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: black;
+      transition: 0.5s;
+    }
+
+    &__time {
+      background-color: black;
+      color: white;
+      padding: 5px 8px;
+      border-radius: 20px;
+    }
+
+    &:nth-child(even) {
+      text-align: right;
+
+      &::before {
+        right: -0.8%;
+      }
+
+      & .timeline__item__time {
+        right: -20%;
+        position: absolute;
+      }
+    }
+    &:nth-child(odd) {
+      transform: translateX(100%);
+
+      &::before {
+        left: -0.6%;
+      }
+
+      & .timeline__item__time {
+        position: absolute;
+        left: -20%;
+      }
+    }
+
+    &:hover::before {
+      box-shadow: 0px 0px 5px 2px #0fb9b1;
+    }
+  }
+}

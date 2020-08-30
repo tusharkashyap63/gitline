@@ -1,0 +1,13 @@
+.userDetails {
+  border: 1px solid black;
+  padding: 20px;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+
+    & img {
+      width: 100%;
+    }
+  }
+}

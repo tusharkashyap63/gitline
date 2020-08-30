@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import SearchUser from './components/SearchUser/SearchUser';
+import Timeline from './components/Timeline/Timeline';
+import UserDetails from './components/UserDetails/UserDetails';
+import useFetch from './hooks/useFetch';
 
 function App() {
+  const { data, loading, error } = useFetch(
+    'https://api.github.com/users/tusharkashyap63'
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchUser />
+      <div style={{ display: 'flex' }}>
+        <Header />
+        <UserDetails userData={data} loading={loading} />
+      </div>
+      <Timeline />
     </div>
   );
 }

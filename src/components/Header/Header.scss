@@ -1,0 +1,36 @@
+.header {
+  border: 1px solid black;
+  width: auto;
+  display: inline-block;
+  &__heading {
+    &__unfocusedText {
+      font-size: 80%;
+      opacity: 0.8;
+    }
+    &__focusedText {
+      letter-spacing: 10px;
+      font-size: 140%;
+
+      &__flexContainer {
+        display: flex;
+        align-items: center;
+
+        &__top {
+          display: inline-block;
+        }
+        &__arrow {
+          font-size: 120%;
+          font-weight: 700;
+        }
+      }
+
+      &__bottom {
+        transform: translateX(15px);
+      }
+    }
+  }
+  &__description {
+    transform: translateX(15px);
+    max-width: 270px;
+  }
+}
