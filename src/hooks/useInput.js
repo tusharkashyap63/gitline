@@ -5,6 +5,6 @@ export function useInput(initialValue) {
 
   return [
     { value, onChange: (e) => setValue(e.target.value) },
-    () => setValue(initialValue),
+    () => setValue(''),
   ];
 }

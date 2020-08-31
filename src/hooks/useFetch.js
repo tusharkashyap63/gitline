@@ -7,6 +7,7 @@ export default function useFetch(uri) {
 
   useEffect(() => {
     if (!uri) return;
+
     fetch(uri)
       .then((res) => res.json())
       .then((data) => setData(data))

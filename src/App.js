@@ -1,24 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import SearchUser from './components/SearchUser/SearchUser';
 import Timeline from './components/Timeline/Timeline';
 import UserDetails from './components/UserDetails/UserDetails';
-import useFetch from './hooks/useFetch';
 
 function App() {
-  const { data, loading, error } = useFetch(
-    'https://api.github.com/users/tusharkashyap63'
-  );
+  const [login, setLogin] = useState('');
 
   return (
     <div>
-      <SearchUser />
+      <SearchUser login={login} setLogin={setLogin} />
       <div style={{ display: 'flex' }}>
         <Header />
-        <UserDetails userData={data} loading={loading} />
+        <UserDetails login={login} />
       </div>
-      <Timeline />
+      <Timeline login={login} />
     </div>
   );
 }

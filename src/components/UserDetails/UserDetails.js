@@ -1,21 +1,31 @@
 import React from 'react';
 import './UserDetails.scss';
+import Fetch from '../Fetch';
 
-export default function UserDetails({ userData, loading }) {
-  console.log(userData);
-
-  return !loading ? (
-    <section className='userDetails'>
-      <div className='userDetails__image'>
-        <img src={userData.avatar_url} alt={`${userData.login} avatar`} />
-      </div>
-      <p className='userDetails__username'>Username: {userData.login}</p>
-      <p className='userDetails__followers'>Followers: {userData.followers}</p>
-      <p className='userDetails__publicRepos'>
-        Public Repositories: {userData.public_repos}
-      </p>
-    </section>
+export default function UserDetails({ login }) {
+  return !login ? (
+    <h1>jksahdk</h1>
   ) : (
-    <p>Nothing to show</p>
+    <Fetch
+      uri={`https://api.github.com/users/${login}`}
+      renderSuccess={UserDetailsCard}
+    />
   );
+
+  function UserDetailsCard({ data }) {
+    console.log(data);
+
+    return (
+      <section className='userDetails'>
+        <div className='userDetails__image'>
+          <img src={data.avatar_url} alt={`${data.login} avatar`} />
+        </div>
+        <p className='userDetails__username'>Username: {data.login}</p>
+        <p className='userDetails__followers'>Followers: {data.followers}</p>
+        <p className='userDetails__publicRepos'>
+          Public Repositories: {data.public_repos}
+        </p>
+      </section>
+    );
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.scss';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-export default function Header() {
+function Header() {
   return (
     <header className='header'>
       <h1 className='header__heading'>
@@ -27,3 +27,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default React.memo(Header);
