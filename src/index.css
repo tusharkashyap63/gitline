@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --font-button: 'Mulish', sans-serif;
+}
+.pink {
+  --color-primary: #ffc1cc;
+  --color-secondary: #9f7aea;
+  --color-background: #fff5f7;
+  --color-accent: #702459;
 }

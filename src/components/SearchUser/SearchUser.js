@@ -20,12 +20,13 @@ export default function SearchUser({ login, setLogin }) {
         placeholder='Enter Github Username'
         required
       />
+
       <button
         className='searchForm__button'
         type='submit'
         onClick={handleSubmit}
       >
-        Get Timeline
+        Search!
       </button>
     </form>
   );
