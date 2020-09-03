@@ -5,6 +5,10 @@ import searchingGif from '../../images/animat-search.gif';
 import TwoColumnLayout from '../TwoColumnLayout/TwoColumnLayout';
 import woman from '../../images/Asset 1.svg';
 import ilCoding from '../../images/Asset 150.png';
+import avatarIllustration from '../../images/Asset 17.svg';
+import { Sparkle, SparklesCanvas } from '@robertaron/react-sparkles';
+import { AiFillGithub } from 'react-icons/ai';
+import { AiFillTwitterCircle } from 'react-icons/ai';
 
 export default function UserDetails({ login }) {
   return !login ? (
@@ -33,27 +37,71 @@ export default function UserDetails({ login }) {
       <TwoColumnLayout imgUrl={ilCoding} isImageBig={true}>
         <section className='userDetails'>
           <div className='userDetails__card'>
-            <div className='userDetails__card__image'>
-              <img src={data.avatar_url} alt={`${data.login} avatar`} />
+            <div className='userDetails__card__heading'>
+              <div style={{ position: 'relative' }} className='container'>
+                <h3>User Profile</h3>
+                <SparklesCanvas>
+                  <Sparkle variant={1} right='0px' top='-50%' delayMS={1000} />
+                  <Sparkle variant={0} right='0px' top='50%' delayMS={300} />
+                  <Sparkle variant={2} left='40%' top='-50%' delayMS={500} />
+                  <Sparkle variant={3} left='0' top='-50%' />
+                  <Sparkle variant={2} left='0' top='50%' />
+                </SparklesCanvas>
+              </div>
+              <img src={avatarIllustration} alt='avatar illustration' />
+            </div>
+
+            <div className='userDetails__card__imageContainer'>
+              <div className='userDetails__card__imageContainer__image'>
+                <img src={data.avatar_url} alt={`${data.login} avatar`} />
+              </div>
             </div>
             <div className='userDetails__card__content'>
-              <p className='userDetails__card__content__name'>{data.name}</p>
-              {data.bio ? (
-                <p className='userDetails__card__content__bio'>{data.bio}</p>
-              ) : null}
+              <div style={{ marginBottom: '7px' }}>
+                <p className='userDetails__card__content__name'>{data.name}</p>
+                {data.bio ? (
+                  <p className='userDetails__card__content__bio'>{data.bio}</p>
+                ) : null}
+              </div>
               <p className='userDetails__card__content__username'>
-                Username: {data.login}
+                <span className='userDetails__card__content__key'>
+                  Username:{' '}
+                </span>
+                {data.login}
               </p>
               <p className='userDetails__card__content__followers'>
-                Followers: {data.followers}
+                <span className='userDetails__card__content__key'>
+                  Followers:{' '}
+                </span>
+                {data.followers}
               </p>
               <p className='userDetails__card__content__publicRepos'>
-                Public Repositories: {data.public_repos}
+                <span className='userDetails__card__content__key'>
+                  Public Repositories:{' '}
+                </span>
+                {data.public_repos}
               </p>
+              <div className='userDetails__card__content__links'>
+                <div className='userDetails__card__content__links__link'>
+                  <a href={data.html_url}>
+                    <AiFillGithub className='userDetails__card__content__links__link__icon' />
+                    <span className='userDetails__card__content__links__link__tooltip'>
+                      GitHub
+                    </span>
+                  </a>
+                </div>
+                {data.twitter_username && (
+                  <div className='userDetails__card__content__links__link'>
+                    <a href={`https://twitter.com/${data.twitter_username}`}>
+                      <AiFillTwitterCircle className='userDetails__card__content__links__link__icon' />
+                      <span className='userDetails__card__content__links__link__tooltip'>
+                        Twitter
+                      </span>
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-          <div className='userDetails__links'>
-            <a href={data.html_url}>Visit on Github</a>
           </div>
         </section>
       </TwoColumnLayout>

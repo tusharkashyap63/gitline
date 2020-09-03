@@ -5,7 +5,7 @@ import UserDetails from './components/UserDetails/UserDetails';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  const [login, setLogin] = useState('');
+  const [login, setLogin] = useState('tusharkashyap63');
 
   return (
     <div className='pink'>
