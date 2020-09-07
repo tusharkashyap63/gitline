@@ -77,10 +77,13 @@
       // border-radius: 50%;
       overflow: hidden;
       margin-right: 1em;
-      padding: 5px;
+      padding: 6px;
       background-color: var(--color-accent);
+      border-radius: 4px;
 
       &__image {
+        border-radius: 4px;
+
         width: 190px;
         height: 190px;
         // border-radius: 50%;
@@ -137,6 +140,77 @@
 
           &__icon:hover + &__tooltip {
             transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .userDetails {
+    
+  
+    &__card {
+      flex-direction: column;
+      
+      &__heading {
+        display: none;
+  
+        & img {
+          
+        }
+  
+        & h3 {
+          
+        }
+      }
+  
+     
+      &__imageContainer {
+      
+        
+        &__image {
+          
+  
+         
+  
+          & > img {
+           
+          }
+        }
+      }
+      &__content {
+        padding-top: 12px;
+        
+  
+        &__name {
+          
+        }
+        &__bio {
+          
+        }
+  
+        &__key {
+         
+        }
+  
+        &__links {
+          
+          &__link {
+            
+  
+            &__icon {
+             
+            }
+  
+            &__tooltip {
+              
+            }
+  
+            &__icon:hover + &__tooltip {
+              
+            }
           }
         }
       }
