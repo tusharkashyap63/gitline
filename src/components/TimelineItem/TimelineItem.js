@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import RepositoryReadme from '../RepositoryReadme/RepositoryReadme';
 
-export default function TimelineItem({ repoName, date, description }) {
+export default function TimelineItem({ repoName, date, description, login }) {
+  const [showReadme, setShowReadme] = useState(false);
   const jsDate = new Date(date);
 
+  const openReadme = () => {
+    setShowReadme(prevValue => !prevValue)
+  }
+
   return (
-    <div className='timeline__item'>
-      <div className='timeline__item__content'>
-        <span className='timeline__item__content__time'>
-          {jsDate.toLocaleDateString(navigator.language, {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-          })}
-        </span>
-        <h3 className='timeline__item__content__title'>{repoName}</h3>
-        <p className='timeline__item__content__description'>{description ? description : 'No discription written'}</p>
+    <>
+      <div className='timeline__item' onClick={openReadme}>
+        <div className='timeline__item__content'>
+          <span className='timeline__item__content__time'>
+            {jsDate.toLocaleDateString(navigator.language, {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </span>
+          <h3 className='timeline__item__content__title'>{repoName}</h3>
+          <p className='timeline__item__content__description'>{description ? description : 'No discription written'}</p>
+        </div>
       </div>
-    </div>
+      {
+        showReadme ? <RepositoryReadme login={login} repo={repoName} /> : null
+      }
+    </>
   );
 }

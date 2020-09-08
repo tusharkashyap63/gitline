@@ -1,0 +1,13 @@
+.repoModal {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  position: absolute;
+
+  &__content {
+    background-color: white;
+    width: 75%;
+    height: 75%;
+  }
+}

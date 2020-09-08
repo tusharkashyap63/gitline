@@ -1,13 +1,22 @@
+.timelineLanding {
+  text-align: center;
+  max-width: 80%;
+  padding: 2em 0;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
 .timeline {
   display: flex;
   flex-direction: column;
   position: relative;
+  background-image: url(../../images/Asset70.png);
 
   &::before {
     content: '';
     width: 4px;
     height: 100%;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     position: absolute;
     left: calc(50% - 2px);
   }
@@ -93,21 +102,27 @@
       text-align: center;
       align-items: center;
   }
+}
 
-  // .timeline__item__content .tag {
-  //     width: calc(100% - 10px);
-  //     text-align: center;
-  // }
+@media only screen and (max-width: 490px) {
+  .timeline {
+    &::before {
+      left: 2px;
+    }
 
-  // .timeline-item-content time {
-  //     margin-top: 20px;
-  // }
-
-  // .timeline-item-content a {
-  //     text-decoration: underline;
-  // }
-
-  // .timeline-item-content a::after {
-  //     display: none;
-  // }
+    &__item {
+      width: 75%;
+      padding-left: 30px;
+      padding-right: 0px;
+      &:nth-child(odd) {
+        align-self: flex-start;
+      }
+      
+      &:nth-child(even) .timeline__item__content::after {
+        right: auto;
+        left: -7.5px;
+        box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
 }
