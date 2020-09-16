@@ -6,8 +6,12 @@ export default function TimelineItem({ repoName, date, description, login }) {
   const jsDate = new Date(date);
 
   const openReadme = () => {
-    setShowReadme(prevValue => !prevValue)
-  }
+    setShowReadme(true);
+  };
+
+  const closeReadme = () => {
+    setShowReadme(false);
+  };
 
   return (
     <>
@@ -21,12 +25,18 @@ export default function TimelineItem({ repoName, date, description, login }) {
             })}
           </span>
           <h3 className='timeline__item__content__title'>{repoName}</h3>
-          <p className='timeline__item__content__description'>{description ? description : 'No discription written'}</p>
+          <p className='timeline__item__content__description'>
+            {description ? description : 'No discription written'}
+          </p>
         </div>
       </div>
-      {
-        showReadme ? <RepositoryReadme login={login} repo={repoName} /> : null
-      }
+      {showReadme ? (
+        <RepositoryReadme
+          login={login}
+          repo={repoName}
+          closeReadme={closeReadme}
+        />
+      ) : null}
     </>
   );
 }

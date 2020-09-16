@@ -6,8 +6,7 @@ export default function useFetch(uri) {
   const [error, setError] = useState();
 
   useEffect(() => {
-    if (!uri) return;
-
+    setLoading(true);
     fetch(uri)
       .then((res) => res.json())
       .then((data) => setData(data))
