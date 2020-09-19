@@ -12,20 +12,21 @@
     background-color: white;
     border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 20px;
     font-size: 25px;
     cursor: pointer;
   }
 
   &__content {
-    padding: 1em;
+    padding: 1.5em;
     background-color: white;
     border-radius: 8px;
-    overflow-y: scroll;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 65%;
+    overflow: scroll;
+    height: 90vh;
+    margin: auto;
+    margin-top: 30px;
+    width: 70%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   }
 }

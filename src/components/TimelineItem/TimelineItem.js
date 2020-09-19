@@ -15,8 +15,8 @@ export default function TimelineItem({ repoName, date, description, login }) {
 
   return (
     <>
-      <div className='timeline__item' onClick={openReadme}>
-        <div className='timeline__item__content'>
+      <div className='timeline__item'>
+        <div className='timeline__item__content' onClick={openReadme}>
           <span className='timeline__item__content__time'>
             {jsDate.toLocaleDateString(navigator.language, {
               month: 'long',

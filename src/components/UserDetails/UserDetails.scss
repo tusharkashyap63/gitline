@@ -145,17 +145,22 @@
 
 @media screen and (max-width: 1050px) {
   .userDetails {
-
     &__card {
       flex-direction: column;
 
       &__heading {
         display: none;
-      } 
+      }
 
       &__content {
         padding-top: 12px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .userDetails__card {
+    margin-top: 40px;
   }
 }
