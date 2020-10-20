@@ -33,8 +33,6 @@ export default function UserDetails({ login }) {
   );
 
   function UserDetailsCard({ data }) {
-    console.log(data);
-
     return (
       <TwoColumnLayout imgUrl={ilCoding} isImageBig={true}>
         <section className='userDetails'>
@@ -62,7 +60,11 @@ export default function UserDetails({ login }) {
               <div style={{ marginBottom: '7px' }}>
                 <p className='userDetails__card__content__name'>{data.name}</p>
                 {data.bio ? (
-                  <p className='userDetails__card__content__bio'>{data.bio}</p>
+                  <p className='userDetails__card__content__bio'>
+                    {data.bio.length > 60
+                      ? data.bio.substring(0, 60) + '...'
+                      : data.bio}
+                  </p>
                 ) : null}
               </div>
               <p className='userDetails__card__content__username'>

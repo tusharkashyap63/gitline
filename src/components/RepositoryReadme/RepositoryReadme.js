@@ -27,14 +27,17 @@ export default function RepositoryReadme({ repo, login, closeReadme }) {
     return <pre>{JSON.stringify(error, null, 2)}</pre>;
   }
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className='readmeLoader'>Loading...</p>;
 
   return (
-    <div className='repoModal'>
-      <MdClose onClick={closeReadme} className='repoModal__closeIcon' />
+    <>
       <div className='repoModal__content'>
+        <MdClose
+          onClick={closeReadme}
+          className='repoModal__content__closeIcon'
+        />
         <ReactMarkdown source={markdown} />
       </div>
-    </div>
+    </>
   );
 }
