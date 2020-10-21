@@ -10,6 +10,7 @@ import { Sparkle, SparklesCanvas } from '@robertaron/react-sparkles';
 import { AiFillGithub } from 'react-icons/ai';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import Loading from '../Loading/Loading';
+import Tooltip from '../Tooltip/Tooltip';
 
 export default function UserDetails({ login }) {
   return !login ? (
@@ -60,11 +61,22 @@ export default function UserDetails({ login }) {
               <div style={{ marginBottom: '7px' }}>
                 <p className='userDetails__card__content__name'>{data.name}</p>
                 {data.bio ? (
-                  <p className='userDetails__card__content__bio'>
-                    {data.bio.length > 60
-                      ? data.bio.substring(0, 60) + '...'
-                      : data.bio}
-                  </p>
+                  data.bio.length > 60 ? (
+                    <Tooltip
+                      content={
+                        <>
+                          <h2>BIO</h2>
+                          <p>{data.bio}</p>
+                        </>
+                      }
+                      direction='right'
+                      delay='300'
+                    >
+                      <p>{data.bio.substring(0, 60) + '...'}</p>
+                    </Tooltip>
+                  ) : (
+                    <p>{data.bio}</p>
+                  )
                 ) : null}
               </div>
               <p className='userDetails__card__content__username'>
@@ -88,19 +100,17 @@ export default function UserDetails({ login }) {
               <div className='userDetails__card__content__links'>
                 <div className='userDetails__card__content__links__link'>
                   <a href={data.html_url}>
-                    <AiFillGithub className='userDetails__card__content__links__link__icon' />
-                    <span className='userDetails__card__content__links__link__tooltip'>
-                      GitHub
-                    </span>
+                    <Tooltip content='GitHub' direction='bottom'>
+                      <AiFillGithub className='userDetails__card__content__links__link__icon' />
+                    </Tooltip>
                   </a>
                 </div>
                 {data.twitter_username && (
                   <div className='userDetails__card__content__links__link'>
                     <a href={`https://twitter.com/${data.twitter_username}`}>
-                      <AiFillTwitterCircle className='userDetails__card__content__links__link__icon' />
-                      <span className='userDetails__card__content__links__link__tooltip'>
-                        Twitter
-                      </span>
+                      <Tooltip content='Twitter' direction='bottom'>
+                        <AiFillTwitterCircle className='userDetails__card__content__links__link__icon' />
+                      </Tooltip>
                     </a>
                   </div>
                 )}

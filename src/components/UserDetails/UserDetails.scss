@@ -112,30 +112,11 @@
         margin-top: 10px;
         &__link {
           display: inline-block;
-          position: relative;
           margin-right: 10px;
 
           &__icon {
             font-size: 2.3em;
             color: var(--color-accent);
-          }
-
-          &__tooltip {
-            position: absolute;
-            bottom: -30%;
-            background-color: #a6cfd5;
-            font-size: 1em;
-            color: var(--color-primary);
-            font-weight: 600;
-            padding: 0 7px;
-            border-radius: 10px;
-            left: -35%;
-            transform: scale(0);
-            transition: transform 0.3s cubic-bezier(0.79, 0.27, 0.46, 1.48);
-          }
-
-          &__icon:hover + &__tooltip {
-            transform: scale(1);
           }
         }
       }
