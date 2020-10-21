@@ -5,7 +5,7 @@ import UserDetails from './components/UserDetails/UserDetails';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  const [login, setLogin] = useState('kentcdodds');
+  const [login, setLogin] = useState('');
 
   return (
     <div className='pink'>
