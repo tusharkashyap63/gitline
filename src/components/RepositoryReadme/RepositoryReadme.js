@@ -12,7 +12,12 @@ export default function RepositoryReadme({ repo, login, closeReadme }) {
     setLoading(true);
     const uri = `https://api.github.com/repos/${login}/${repo}/readme`;
     const { download_url } = await fetch(uri).then((res) => res.json());
-    const markdown = await fetch(download_url).then((res) => res.text());
+    let markdown;
+    if (download_url) {
+      markdown = await fetch(download_url).then((res) => res.text());
+    } else {
+      markdown = '## This repository has no README.md';
+    }
 
     setMarkdown(markdown);
     setLoading(false);
