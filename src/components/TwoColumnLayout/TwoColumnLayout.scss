@@ -24,6 +24,14 @@
   }
 }
 
+@media screen and (max-width: 1050px) {
+  .twoColumnLayout {
+    &__imageContainerSmall {
+      display: none;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .twoColumnLayout {
     flex-direction: column;
@@ -32,6 +40,7 @@
       width: 70%;
     }
     &__imageContainerSmall {
+      display: none;
       margin: auto;
       width: 45%;
     }
