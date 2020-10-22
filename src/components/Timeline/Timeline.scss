@@ -11,8 +11,15 @@
   flex-direction: column;
   position: relative;
   background-image: url(../../images/Asset70.png);
-  // background-repeat: no-repeat;
-  // background-position: left -1%;
+
+  &__heading {
+    text-align: center;
+    color: var(--color-accent);
+    padding: 0.2em;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    margin-bottom: 1em;
+  }
 
   &::before {
     content: '';

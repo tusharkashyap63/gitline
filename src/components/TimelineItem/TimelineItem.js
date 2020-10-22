@@ -7,10 +7,12 @@ export default function TimelineItem({ repoName, date, description, login }) {
 
   const openReadme = () => {
     setShowReadme(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeReadme = () => {
     setShowReadme(false);
+    document.body.style.overflow = '';
   };
 
   return (
@@ -29,7 +31,14 @@ export default function TimelineItem({ repoName, date, description, login }) {
         </p>
       </div>
       {showReadme ? (
-        <div className='repoModal'>
+        <div
+          className='repoModal'
+          onClick={(e) => {
+            if (e.target.className === 'repoModal') {
+              closeReadme();
+            }
+          }}
+        >
           <RepositoryReadme
             login={login}
             repo={repoName}

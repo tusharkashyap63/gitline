@@ -21,6 +21,7 @@ export default function Timeline({ login }) {
   function RepoTimeline({ data }) {
     return (
       <div className='timeline'>
+        <h1 className='timeline__heading'>Repositories</h1>
         {Array.isArray(data) &&
           data.map((repo) => (
             <TimelineItem
