@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './SearchUser.scss';
 import { useInput } from '../../hooks/useInput';
 import searchIcon from '../../images/Asset 100.svg';
 
-export default function SearchUser({ login, setLogin }) {
+export default function SearchUser({ login, setLogin, setPrevUser }) {
+  const currentUser = useRef(login);
   const [searchTermProps, clearSearchTerm] = useInput(login);
 
   const handleSubmit = (e) => {
@@ -11,6 +12,11 @@ export default function SearchUser({ login, setLogin }) {
     setLogin(searchTermProps.value);
     clearSearchTerm();
   };
+
+  useEffect(() => {
+    setPrevUser(currentUser.current);
+    currentUser.current = login;
+  }, [login, setPrevUser]);
 
   return (
     <form className='searchForm'>
