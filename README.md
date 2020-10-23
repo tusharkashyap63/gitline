@@ -1,4 +1,4 @@
-# Gitline
+# GitLine
 
 [Live preview](https://gitline.netlify.app/)
 
