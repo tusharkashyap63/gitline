@@ -11,7 +11,7 @@ function App() {
   const [prevUser, setPrevUser] = useState('');
 
   return (
-    <div className='pink'>
+    <div className='app'>
       <Navbar login={login} setLogin={setLogin} setPrevUser={setPrevUser} />
       <PreviousUser prevUser={prevUser} setLogin={setLogin} />
       <UserDetails login={login} />

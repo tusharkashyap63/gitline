@@ -11,6 +11,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import Loading from '../Loading/Loading';
 import Tooltip from '../Tooltip/Tooltip';
+import NotFound from '../NotFound/NotFound';
 
 export default function UserDetails({ login }) {
   return !login ? (
@@ -30,6 +31,7 @@ export default function UserDetails({ login }) {
       uri={`https://api.github.com/users/${login}`}
       laodingFallback={<Loading />}
       renderSuccess={UserDetailsCard}
+      renderNotFound={<NotFound message='No such user' />}
     />
   );
 

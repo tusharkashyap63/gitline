@@ -2,6 +2,7 @@ import React from 'react';
 import './Timeline.scss';
 import TimelineItem from '../TimelineItem/TimelineItem';
 import Fetch from '../Fetch';
+import NotFound from '../NotFound/NotFound';
 
 export default function Timeline({ login }) {
   return !login ? (
@@ -15,6 +16,7 @@ export default function Timeline({ login }) {
     <Fetch
       uri={`https://api.github.com/users/${login}/repos?sort=created`}
       renderSuccess={RepoTimeline}
+      renderNotFound={<NotFound message='No timeline to show' />}
     />
   );
 
