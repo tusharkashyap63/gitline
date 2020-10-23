@@ -4,6 +4,7 @@ import Timeline from './components/Timeline/Timeline';
 import UserDetails from './components/UserDetails/UserDetails';
 import Navbar from './components/Navbar/Navbar';
 import PreviousUser from './components/PreviousUser/PreviousUser';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [login, setLogin] = useState('');
@@ -15,6 +16,7 @@ function App() {
       <PreviousUser prevUser={prevUser} setLogin={setLogin} />
       <UserDetails login={login} />
       <Timeline login={login} />
+      <Footer />
     </div>
   );
 }

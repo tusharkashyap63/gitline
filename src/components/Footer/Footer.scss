@@ -1,0 +1,9 @@
+.footer {
+  text-align: center;
+  color: var(--color-background);
+  color: black;
+
+  &__link {
+    color: var(--color-primary);
+  }
+}
